@@ -5,7 +5,7 @@ import menu from "./menu";
 const MIN_ORDER_FREE_DELIVERY = 399;
 const DELIVERY_CHARGE = 30;
 const OPENING_HOUR = 10;  // 9:00 AM
-const CLOSING_HOUR = 22; // 11:00 PM
+const CLOSING_HOUR = 22.5; // 11:00 PM
 
 export default function Home() {
   // --- 1. STATE & MEMORY ---
