@@ -6,7 +6,7 @@ const MIN_ORDER_FREE_DELIVERY = 399;
 const DELIVERY_CHARGE = 30;
 const OPENING_HOUR = 10;  // 9:00 AM
 const CLOSING_HOUR = 22.5; // 11:00 PM
-const CLOSING_TIME_LABEL = "22:30";
+
 
 export default function Home() {
   // --- 1. STATE & MEMORY ---
@@ -170,9 +170,12 @@ if (showCustomerModal) {
       <h1 style={styles.header}>Urban Thek</h1>
       <p style={styles.addressText}>Nawabpur, Near Akankha More, Newtown</p>
       
-      <div style={styles.statusBadge}>
-        {isOpen ? `● OPEN NOW (Closes ${CLOSING_HOUR}:00 PM)` : `○ CLOSED (Opens ${OPENING_HOUR}:00 AM)`}
-      </div>
+     <div style={styles.statusBadge}>
+  {isOpen 
+    ? `● OPEN NOW (Closes ${Math.floor(CLOSING_HOUR)}:${CLOSING_HOUR % 1 !== 0 ? "30" : "00"} PM)` 
+    : `○ CLOSED (Opens ${OPENING_HOUR}:00 AM)`
+  }
+</div>
       
       <div style={styles.deliveryBanner}>
         {isFreeDelivery 
