@@ -4,8 +4,8 @@ import menu from "./menu";
 // Constants for business logic
 const MIN_ORDER_FREE_DELIVERY = 499;
 const DELIVERY_CHARGE = 50;
-const OPENING_HOUR = 9;  // 9:00 AM
-const CLOSING_HOUR = 23; // 11:00 PM
+const OPENING_HOUR = 10;  // 9:00 AM
+const CLOSING_HOUR = 22.5; // 11:00 PM
 
 export default function Home() {
   // --- 1. STATE & MEMORY ---
