@@ -1,5 +1,5 @@
 export default [
-  
+ /* 
  {
     "id": 1,
     "category": "Indine Breakfast 9 am to 11 am @99",
@@ -103,7 +103,7 @@ export default [
     "full": 99,
     "half": null,
     "available": true
-  },
+  },    */
   {
     "id": 14,
     "category": "Breakfast",
