@@ -6,6 +6,7 @@ const MIN_ORDER_FREE_DELIVERY = 399;
 const DELIVERY_CHARGE = 30;
 const OPENING_HOUR = 10;  // 9:00 AM
 const CLOSING_HOUR = 22.5; // 11:00 PM
+const CLOSING_TIME_LABEL = "22:30";
 
 export default function Home() {
   // --- 1. STATE & MEMORY ---
