@@ -140,7 +140,7 @@ export default [
     "id": 18,
     "category": "Breakfast",
     "name": "Masala Omlette single egg",
-    "full": 30,
+    "full": 20,
     "half": null,
     "available": true
   },
@@ -268,7 +268,7 @@ export default [
     "id": 34,
     "category": "Rolls",
     "name": "Paneer Roll",
-    "full": 70,
+    "full": 80,
     "half": null,
     "available": true
   },
@@ -284,15 +284,15 @@ export default [
     "id": 36,
     "category": "Rolls",
     "name": "Egg Roll (double/single)",
-    "full": 75,
-    "half": 65,
+    "full": 80,
+    "half": 70,
     "available": true
   },
   {
     "id": 37,
     "category": "Rolls",
     "name": "Chicken Roll",
-    "full": 80,
+    "full": 85,
     "half": null,
     "available": true
   },
@@ -300,7 +300,7 @@ export default [
     "id": 38,
     "category": "Rolls",
     "name": "Egg chicken roll(single)",
-    "full": 90,
+    "full": 95,
     "half": null,
     "available": true
   },
