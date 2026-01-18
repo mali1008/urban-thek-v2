@@ -344,14 +344,14 @@ export default [
     "half": null,
     "available": true
   },
-  {
-    /*"id": 44,
+  /*{
+    "id": 44,
     "category": "Momos",
     "name": "Chicken Cheese Momo",
     "full": 110,
     "half": null,
-    "available": true*/
-  },
+    "available":
+  },*/
   {
     "id": 45,
     "category": "Indian Non Veg Starters",
@@ -680,13 +680,13 @@ export default [
     "half": null,
     "available": true
   },
-  {
-    /*"id": 86,
+  /*{
+    "id": 86,
     "category": "Rice and Roti",
     "name": "Veg Polao",
     "full": 130,
     "half": null,
-    "available": true*/
+    "available": true
   },
   {
     /*"id": 87,
@@ -694,8 +694,8 @@ export default [
     "name": "Veg Thali",
     "full": 125,
     "half": null,
-    "available": true */
-  },
+    "available": true 
+  },*/
   {
     "id": 88,
     "category": "Thalis",
