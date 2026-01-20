@@ -1,13 +1,7 @@
-export default [
-<<<<<<< HEAD
-  
- /*{
-=======
- /* 
- {
->>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
+const menu = [
+ /* {
     "id": 1,
-    "category": "Indine Breakfast 9 am to 11 am @99",
+    "category": "Indian Breakfast 9 am to 11 am @99",
     "name": "Butter toast(2 pcs) plus masala omlette single egg",
     "full": 99,
     "half": null,
@@ -15,7 +9,7 @@ export default [
   },
   {
     "id": 2,
-    "category": "Indine Breakfast 9 am to 11 am @99",
+    "category": "Indian Breakfast 9 am to 11 am @99",
     "name": "Veg Sandwich",
     "full": 99,
     "half": null,
@@ -23,7 +17,7 @@ export default [
   },
   {
     "id": 3,
-    "category": "Indine Breakfast 9 am to 11 am @99",
+    "category": "Indian Breakfast 9 am to 11 am @99",
     "name": "Puri Sabji(3 pcs)",
     "full": 99,
     "half": null,
@@ -31,7 +25,7 @@ export default [
   },
   {
     "id": 4,
-    "category": "Indine Breakfast 9 am to 11 am @99",
+    "category": "Indian Breakfast 9 am to 11 am @99",
     "name": "Paratha Sabji(2 pcs)",
     "full": 99,
     "half": null,
@@ -39,7 +33,7 @@ export default [
   },
   {
     "id": 5,
-    "category": "Indine Breakfast 9 am to 11 am @99",
+    "category": "Indian Breakfast 9 am to 11 am @99",
     "name": "Chole Bhatora(2 pcs)",
     "full": 99,
     "half": null,
@@ -47,7 +41,7 @@ export default [
   },
   {
     "id": 6,
-    "category": "Indine Breakfast 9 am to 11 am @99",
+    "category": "Indian Breakfast 9 am to 11 am @99",
     "name": "Plain Dosa",
     "full": 99,
     "half": null,
@@ -55,7 +49,7 @@ export default [
   },
   {
     "id": 7,
-    "category": "Indine Breakfast 9 am to 11 am @99",
+    "category": "Indian Breakfast 9 am to 11 am @99",
     "name": "Alu paratha (1 pcs, dahi,pickle)",
     "full": 99,
     "half": null,
@@ -63,7 +57,7 @@ export default [
   },
   {
     "id": 8,
-    "category": "Indine Breakfast 9 am to 11 am @99",
+    "category": "Indian Breakfast 9 am to 11 am @99",
     "name": "Pav bhaji",
     "full": 99,
     "half": null,
@@ -71,7 +65,7 @@ export default [
   },
   {
     "id": 9,
-    "category": "Indine Breakfast 9 am to 11 am @99",
+    "category": "Indian Breakfast 9 am to 11 am @99",
     "name": "UPMA",
     "full": 99,
     "half": null,
@@ -79,7 +73,7 @@ export default [
   },
   {
     "id": 10,
-    "category": "Indine Breakfast 9 am to 11 am @99",
+    "category": "Indian Breakfast 9 am to 11 am @99",
     "name": "Uttapam",
     "full": 99,
     "half": null,
@@ -87,7 +81,7 @@ export default [
   },
   {
     "id": 11,
-    "category": "Indine Breakfast 9 am to 11 am @99",
+    "category": "Indian Breakfast 9 am to 11 am @99",
     "name": "Idli (2 pcs)",
     "full": 99,
     "half": null,
@@ -95,7 +89,7 @@ export default [
   },
   {
     "id": 12,
-    "category": "Indine Breakfast 9 am to 11 am @99",
+    "category": "Indian Breakfast 9 am to 11 am @99",
     "name": "Luchi(4 pcs) alu dom",
     "full": 99,
     "half": null,
@@ -103,16 +97,12 @@ export default [
   },
   {
     "id": 13,
-    "category": "Indine Breakfast 9 am to 11 am @99",
+    "category": "Indian Breakfast 9 am to 11 am @99",
     "name": "Roti (3 pcs) dal/sabji",
     "full": 99,
     "half": null,
     "available": true
-<<<<<<< HEAD
-  },*/ 
-=======
-  },    */
->>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
+  }, */
   {
     "id": 14,
     "category": "Breakfast",
@@ -125,11 +115,7 @@ export default [
     "id": 15,
     "category": "Breakfast",
     "name": "Veg Cheese Sandwich",
-<<<<<<< HEAD
-    "full": 135,
-=======
     "full": 145,
->>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "half": null,
     "available": true
   },
@@ -184,11 +170,7 @@ export default [
   {
     "id": 22,
     "category": "Breakfast",
-<<<<<<< HEAD
     "name": "Puri Sabji(4 pcs)",
-=======
-    "name": "Puri Sabji(3 pcs)",
->>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "full": 120,
     "half": null,
     "available": true
@@ -324,7 +306,7 @@ export default [
   {
     "id": 39,
     "category": "Rolls",
-    "name": "Double  egg double chicken roll",
+    "name": "Double egg double chicken roll",
     "full": 125,
     "half": null,
     "available": true
@@ -361,18 +343,6 @@ export default [
     "half": null,
     "available": true
   },
-  /*{
-    "id": 44,
-    "category": "Momos",
-    "name": "Chicken Cheese Momo",
-    "full": 110,
-    "half": null,
-<<<<<<< HEAD
-    "available": true
-=======
-    "available":
->>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
-  },*/
   {
     "id": 45,
     "category": "Indian Non Veg Starters",
@@ -514,24 +484,15 @@ export default [
     "category": "Chinese Non veg gravy",
     "name": "Garlic Fish (6 pcs/4 pcs)",
     "full": 250,
-<<<<<<< HEAD
     "half": 180,
-=======
-    "half": 160,
->>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "available": true
   },
   {
     "id": 63,
     "category": "Chinese Non veg gravy",
     "name": "Chilli fish Dry (6 pcs/4 pcs)",
-<<<<<<< HEAD
     "full": 260,
     "half": 190,
-=======
-    "full": 250,
-    "half": 160,
->>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "available": true
   },
   {
@@ -569,7 +530,7 @@ export default [
   {
     "id": 68,
     "category": "Indian veg curries",
-    "name": "Seasonal Veg (  Gobi/Patal/Bhindi/      )",
+    "name": "Seasonal Veg ( Gobi/Patal/Bhindi )",
     "full": 125,
     "half": 80,
     "available": true
@@ -577,11 +538,7 @@ export default [
   {
     "id": 69,
     "category": "Indian veg curries",
-<<<<<<< HEAD
     "name": "Paneer Butter Masala(6 pcs/4 pcs)",
-=======
-    "name": "Paneer Butter Masala",
->>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "full": 175,
     "half": 99,
     "available": true
@@ -597,15 +554,9 @@ export default [
   {
     "id": 71,
     "category": "Indian veg curries",
-<<<<<<< HEAD
     "name": "Kadhai Paneer(6 pcs/4 pcs)",
     "full": 190,
     "half": 120,
-=======
-    "name": "Kadhai Paneer(8 pcs/4 pcs)",
-    "full": 190,
-    "half": 105,
->>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "available": true
   },
   {
@@ -720,31 +671,6 @@ export default [
     "half": 55,
     "available": true
   },
-  /*{
-    "id": 86,
-    "category": "Rice and Roti",
-    "name": "Veg Polao",
-    "full": 130,
-    "half": null,
-    "available": true
-  },
-<<<<<<< HEAD
-  /*{
-    "id": 87,
-=======
-  {
-    /*"id": 87,
->>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
-    "category": "Thalis",
-    "name": "Veg Thali",
-    "full": 125,
-    "half": null,
-<<<<<<< HEAD
-    "available": true
-=======
-    "available": true 
->>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
-  },*/
   {
     "id": 88,
     "category": "Thalis",
@@ -772,7 +698,7 @@ export default [
   {
     "id": 91,
     "category": "Thalis",
-    "name": "Fish Thali (Basmati rice, roti, dal,alu bhaja,Fish Curry  (Rohu/Katla 1 pc), pickle, papad, onion)",
+    "name": "Fish Thali (Basmati rice, roti, dal,alu bhaja,Fish Curry (Rohu/Katla 1 pc), pickle, papad, onion)",
     "full": 185,
     "half": null,
     "available": true
@@ -877,11 +803,7 @@ export default [
     "id": 104,
     "category": "Fried Rice",
     "name": "Egg Chicken Fried Rice",
-<<<<<<< HEAD
     "full": 175,
-=======
-    "full": 150,
->>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "half": null,
     "available": true
   },
@@ -897,11 +819,7 @@ export default [
     "id": 106,
     "category": "Fried Rice",
     "name": "Mixed Fried Rice",
-<<<<<<< HEAD
-    "full": 180,
-=======
     "full": 199,
->>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "half": null,
     "available": true
   },
@@ -1154,3 +1072,5 @@ export default [
     "available": true
   }
 ];
+
+export default menu;
