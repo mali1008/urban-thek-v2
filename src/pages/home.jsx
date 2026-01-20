@@ -1,12 +1,21 @@
 import { useState, useEffect } from "react";
 import menu from "./menu";
 
+<<<<<<< HEAD
 // Constants for business 
 const MIN_ORDER_FOR_DELIVERY = 299;
 const MIN_ORDER_FREE_DELIVERY = 399;
 const DELIVERY_CHARGE = 30;
 const OPENING_HOUR = 10;  // 10:00 AM
 const CLOSING_HOUR = 22; // 22:00 PM
+=======
+// Constants for business logic
+const MIN_ORDER_FREE_DELIVERY = 499;
+const DELIVERY_CHARGE = 30;
+const OPENING_HOUR = 10;  // 9:00 AM
+const CLOSING_HOUR = 22.5; // 11:00 PM
+
+>>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
 
 export default function Home() {
   // --- 1. STATE & MEMORY ---
@@ -194,9 +203,12 @@ if (showCustomerModal) {
       <h1 style={styles.header}>Urban Thek</h1>
       <p style={styles.addressText}>Nawabpur, Near Akankha More, Newtown</p>
       
-      <div style={styles.statusBadge}>
-        {isOpen ? `● OPEN NOW (Closes ${CLOSING_HOUR}:00 PM)` : `○ CLOSED (Opens ${OPENING_HOUR}:00 AM)`}
-      </div>
+     <div style={styles.statusBadge}>
+  {isOpen 
+    ? `● OPEN NOW (Closes ${Math.floor(CLOSING_HOUR)}:${CLOSING_HOUR % 1 !== 0 ? "30" : "00"} PM)` 
+    : `○ CLOSED (Opens ${OPENING_HOUR}:00 AM)`
+  }
+</div>
       
       <div style={styles.deliveryBanner}>
   <div>
@@ -289,5 +301,10 @@ if (showCustomerModal) {
         </div>
       )}
     </div>
+<<<<<<< HEAD
   )
 }
+=======
+  );
+}
+>>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f

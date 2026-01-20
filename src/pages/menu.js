@@ -1,6 +1,11 @@
 export default [
+<<<<<<< HEAD
   
  /*{
+=======
+ /* 
+ {
+>>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "id": 1,
     "category": "Indine Breakfast 9 am to 11 am @99",
     "name": "Butter toast(2 pcs) plus masala omlette single egg",
@@ -103,7 +108,11 @@ export default [
     "full": 99,
     "half": null,
     "available": true
+<<<<<<< HEAD
   },*/ 
+=======
+  },    */
+>>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
   {
     "id": 14,
     "category": "Breakfast",
@@ -116,7 +125,11 @@ export default [
     "id": 15,
     "category": "Breakfast",
     "name": "Veg Cheese Sandwich",
+<<<<<<< HEAD
     "full": 135,
+=======
+    "full": 145,
+>>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "half": null,
     "available": true
   },
@@ -171,7 +184,11 @@ export default [
   {
     "id": 22,
     "category": "Breakfast",
+<<<<<<< HEAD
     "name": "Puri Sabji(4 pcs)",
+=======
+    "name": "Puri Sabji(3 pcs)",
+>>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "full": 120,
     "half": null,
     "available": true
@@ -350,7 +367,11 @@ export default [
     "name": "Chicken Cheese Momo",
     "full": 110,
     "half": null,
+<<<<<<< HEAD
     "available": true
+=======
+    "available":
+>>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
   },*/
   {
     "id": 45,
@@ -452,8 +473,8 @@ export default [
     "id": 57,
     "category": "Chinese Non veg gravy",
     "name": "Chilli chicken Dry (6 pcs/4 pcs)",
-    "full": 190,
-    "half": 140,
+    "full": 175,
+    "half": 120,
     "available": true
   },
   {
@@ -493,15 +514,24 @@ export default [
     "category": "Chinese Non veg gravy",
     "name": "Garlic Fish (6 pcs/4 pcs)",
     "full": 250,
+<<<<<<< HEAD
     "half": 180,
+=======
+    "half": 160,
+>>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "available": true
   },
   {
     "id": 63,
     "category": "Chinese Non veg gravy",
     "name": "Chilli fish Dry (6 pcs/4 pcs)",
+<<<<<<< HEAD
     "full": 260,
     "half": 190,
+=======
+    "full": 250,
+    "half": 160,
+>>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "available": true
   },
   {
@@ -547,7 +577,11 @@ export default [
   {
     "id": 69,
     "category": "Indian veg curries",
+<<<<<<< HEAD
     "name": "Paneer Butter Masala(6 pcs/4 pcs)",
+=======
+    "name": "Paneer Butter Masala",
+>>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "full": 175,
     "half": 99,
     "available": true
@@ -563,9 +597,15 @@ export default [
   {
     "id": 71,
     "category": "Indian veg curries",
+<<<<<<< HEAD
     "name": "Kadhai Paneer(6 pcs/4 pcs)",
     "full": 190,
     "half": 120,
+=======
+    "name": "Kadhai Paneer(8 pcs/4 pcs)",
+    "full": 190,
+    "half": 105,
+>>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "available": true
   },
   {
@@ -652,7 +692,7 @@ export default [
     "id": 82,
     "category": "Rice and Roti",
     "name": "Lachha Paratha",
-    "full": 25,
+    "full": 30,
     "half": null,
     "available": true
   },
@@ -680,7 +720,7 @@ export default [
     "half": 55,
     "available": true
   },
-  {
+  /*{
     "id": 86,
     "category": "Rice and Roti",
     "name": "Veg Polao",
@@ -688,13 +728,22 @@ export default [
     "half": null,
     "available": true
   },
+<<<<<<< HEAD
   /*{
     "id": 87,
+=======
+  {
+    /*"id": 87,
+>>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "category": "Thalis",
     "name": "Veg Thali",
     "full": 125,
     "half": null,
+<<<<<<< HEAD
     "available": true
+=======
+    "available": true 
+>>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
   },*/
   {
     "id": 88,
@@ -828,7 +877,11 @@ export default [
     "id": 104,
     "category": "Fried Rice",
     "name": "Egg Chicken Fried Rice",
+<<<<<<< HEAD
     "full": 175,
+=======
+    "full": 150,
+>>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "half": null,
     "available": true
   },
@@ -836,7 +889,7 @@ export default [
     "id": 105,
     "category": "Fried Rice",
     "name": "Prawn Fried Rice",
-    "full": 170,
+    "full": 199,
     "half": null,
     "available": true
   },
@@ -844,7 +897,11 @@ export default [
     "id": 106,
     "category": "Fried Rice",
     "name": "Mixed Fried Rice",
+<<<<<<< HEAD
     "full": 180,
+=======
+    "full": 199,
+>>>>>>> 00dbc19f94c86e2c1104601340adc051ee79c71f
     "half": null,
     "available": true
   },
@@ -940,7 +997,7 @@ export default [
     "id": 118,
     "category": "South Indian",
     "name": "Extra Butter",
-    "full": 15,
+    "full": 10,
     "half": null,
     "available": true
   },
@@ -956,7 +1013,7 @@ export default [
     "id": 120,
     "category": "South Indian",
     "name": "Extra Cheese",
-    "full": 20,
+    "full": 30,
     "half": null,
     "available": true
   },
@@ -1036,7 +1093,7 @@ export default [
     "id": 130,
     "category": "Beverages",
     "name": "Darjeeling Tea",
-    "full": 49,
+    "full": 60,
     "half": null,
     "available": true
   },
