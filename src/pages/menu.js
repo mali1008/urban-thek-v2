@@ -1,6 +1,6 @@
 export default [
   
- {
+ /*{
     "id": 1,
     "category": "Indine Breakfast 9 am to 11 am @99",
     "name": "Butter toast(2 pcs) plus masala omlette single egg",
@@ -103,12 +103,12 @@ export default [
     "full": 99,
     "half": null,
     "available": true
-  },
+  },*/ 
   {
     "id": 14,
     "category": "Breakfast",
     "name": "Veg Sandwich",
-    "full": 110,
+    "full": 125,
     "half": null,
     "available": true
   },
@@ -116,7 +116,7 @@ export default [
     "id": 15,
     "category": "Breakfast",
     "name": "Veg Cheese Sandwich",
-    "full": 120,
+    "full": 135,
     "half": null,
     "available": true
   },
@@ -124,7 +124,7 @@ export default [
     "id": 16,
     "category": "Breakfast",
     "name": "Chicken Sandwich",
-    "full": 130,
+    "full": 150,
     "half": null,
     "available": true
   },
@@ -132,7 +132,7 @@ export default [
     "id": 17,
     "category": "Breakfast",
     "name": "Chicken Cheese Sandwich",
-    "full": 140,
+    "full": 165,
     "half": null,
     "available": true
   },
@@ -140,7 +140,7 @@ export default [
     "id": 18,
     "category": "Breakfast",
     "name": "Masala Omlette single egg",
-    "full": 30,
+    "full": 20,
     "half": null,
     "available": true
   },
@@ -156,7 +156,7 @@ export default [
     "id": 20,
     "category": "Breakfast",
     "name": "Alu Paratha (2 pcs, dahi,pickle)",
-    "full": 120,
+    "full": 130,
     "half": null,
     "available": true
   },
@@ -164,7 +164,7 @@ export default [
     "id": 21,
     "category": "Breakfast",
     "name": "Paratha Sabji(2 pcs)",
-    "full": 110,
+    "full": 120,
     "half": null,
     "available": true
   },
@@ -172,7 +172,7 @@ export default [
     "id": 22,
     "category": "Breakfast",
     "name": "Puri Sabji(4 pcs)",
-    "full": 110,
+    "full": 120,
     "half": null,
     "available": true
   },
@@ -268,7 +268,7 @@ export default [
     "id": 34,
     "category": "Rolls",
     "name": "Paneer Roll",
-    "full": 70,
+    "full": 80,
     "half": null,
     "available": true
   },
@@ -276,7 +276,7 @@ export default [
     "id": 35,
     "category": "Rolls",
     "name": "Paneer Cheese Roll",
-    "full": 85,
+    "full": 95,
     "half": null,
     "available": true
   },
@@ -284,15 +284,15 @@ export default [
     "id": 36,
     "category": "Rolls",
     "name": "Egg Roll (double/single)",
-    "full": 75,
-    "half": 65,
+    "full": 80,
+    "half": 70,
     "available": true
   },
   {
     "id": 37,
     "category": "Rolls",
     "name": "Chicken Roll",
-    "full": 80,
+    "full": 85,
     "half": null,
     "available": true
   },
@@ -300,7 +300,7 @@ export default [
     "id": 38,
     "category": "Rolls",
     "name": "Egg chicken roll(single)",
-    "full": 90,
+    "full": 95,
     "half": null,
     "available": true
   },
@@ -308,7 +308,7 @@ export default [
     "id": 39,
     "category": "Rolls",
     "name": "Double  egg double chicken roll",
-    "full": 140,
+    "full": 125,
     "half": null,
     "available": true
   },
@@ -344,14 +344,14 @@ export default [
     "half": null,
     "available": true
   },
-  {
+  /*{
     "id": 44,
     "category": "Momos",
     "name": "Chicken Cheese Momo",
     "full": 110,
     "half": null,
     "available": true
-  },
+  },*/
   {
     "id": 45,
     "category": "Indian Non Veg Starters",
@@ -364,7 +364,7 @@ export default [
     "id": 46,
     "category": "Indian Non Veg Starters",
     "name": "Fish fry",
-    "full": 150,
+    "full": 160,
     "half": null,
     "available": true
   },
@@ -380,7 +380,7 @@ export default [
     "id": 48,
     "category": "Indian Non Veg Starters",
     "name": "Chicken pakoda",
-    "full": 140,
+    "full": 150,
     "half": null,
     "available": true
   },
@@ -388,7 +388,7 @@ export default [
     "id": 49,
     "category": "Indian Non Veg Starters",
     "name": "Chicken lollypop(6 pcs)",
-    "full": 220,
+    "full": 240,
     "half": null,
     "available": true
   },
@@ -396,7 +396,7 @@ export default [
     "id": 50,
     "category": "Indian Non Veg Starters",
     "name": "Crispy chicken",
-    "full": 220,
+    "full": 240,
     "half": null,
     "available": true
   },
@@ -412,7 +412,7 @@ export default [
     "id": 52,
     "category": "Indian Non Veg Starters",
     "name": "Chicken Finger(6 pcs)",
-    "full": 210,
+    "full": 230,
     "half": null,
     "available": true
   },
@@ -428,7 +428,7 @@ export default [
     "id": 54,
     "category": "Chinese Veg gravy",
     "name": "Veg Manchirian(6 pcs/4 pcs)",
-    "full": 159,
+    "full": 150,
     "half": 120,
     "available": true
   },
@@ -444,7 +444,7 @@ export default [
     "id": 56,
     "category": "Chinese Non veg gravy",
     "name": "Chilli chicken (6 pcs/4 pcs)",
-    "full": 169,
+    "full": 175,
     "half": 120,
     "available": true
   },
@@ -460,7 +460,7 @@ export default [
     "id": 58,
     "category": "Chinese Non veg gravy",
     "name": "Chicken Manchurian(6 pcs/4 pcs)",
-    "full": 169,
+    "full": 175,
     "half": 130,
     "available": true
   },
@@ -468,7 +468,7 @@ export default [
     "id": 59,
     "category": "Chinese Non veg gravy",
     "name": "Garlic Chicken (6 pcs/4 pcs)",
-    "full": 179,
+    "full": 180,
     "half": 130,
     "available": true
   },
@@ -476,7 +476,7 @@ export default [
     "id": 60,
     "category": "Chinese Non veg gravy",
     "name": "Scezwan Chicken (6 pcs/4 pcs)",
-    "full": 175,
+    "full": 185,
     "half": 130,
     "available": true
   },
@@ -484,31 +484,31 @@ export default [
     "id": 61,
     "category": "Chinese Non veg gravy",
     "name": "Chilli fish (6 pcs/4 pcs)",
-    "full": 230,
-    "half": 150,
+    "full": 245,
+    "half": 180,
     "available": true
   },
   {
     "id": 62,
     "category": "Chinese Non veg gravy",
     "name": "Garlic Fish (6 pcs/4 pcs)",
-    "full": 215,
-    "half": 160,
+    "full": 250,
+    "half": 180,
     "available": true
   },
   {
     "id": 63,
     "category": "Chinese Non veg gravy",
     "name": "Chilli fish Dry (6 pcs/4 pcs)",
-    "full": 210,
-    "half": 140,
+    "full": 260,
+    "half": 190,
     "available": true
   },
   {
     "id": 64,
     "category": "Indian veg curries",
     "name": "Dal Fry",
-    "full": 79,
+    "full": 80,
     "half": null,
     "available": true
   },
@@ -547,24 +547,24 @@ export default [
   {
     "id": 69,
     "category": "Indian veg curries",
-    "name": "Paneer Butter Masala(8 pcs/4 pcs)",
+    "name": "Paneer Butter Masala(6 pcs/4 pcs)",
     "full": 175,
-    "half": 110,
+    "half": 99,
     "available": true
   },
   {
     "id": 70,
     "category": "Indian veg curries",
-    "name": "Paneer Do piyaja(8 pcs/4 pcs)",
+    "name": "Paneer Do piyaja(6 pcs/4 pcs)",
     "full": 190,
-    "half": 120,
+    "half": 105,
     "available": true
   },
   {
     "id": 71,
     "category": "Indian veg curries",
-    "name": "Kadhai Paneer(8 pcs/4 pcs)",
-    "full": 180,
+    "name": "Kadhai Paneer(6 pcs/4 pcs)",
+    "full": 190,
     "half": 120,
     "available": true
   },
@@ -573,7 +573,7 @@ export default [
     "category": "Indian Non Veg curries",
     "name": "Chicken Curry(4 pcs)",
     "full": 210,
-    "half": 110,
+    "half": 120,
     "available": true
   },
   {
@@ -581,15 +581,15 @@ export default [
     "category": "Indian Non Veg curries",
     "name": "Chicken Kossa(4 pcs/2 pcs)",
     "full": 220,
-    "half": 120,
+    "half": 130,
     "available": true
   },
   {
     "id": 74,
     "category": "Indian Non Veg curries",
     "name": "Kadai Chicken(4 pcs/2 pcs)",
-    "full": 230,
-    "half": 130,
+    "full": 240,
+    "half": 140,
     "available": true
   },
   {
@@ -597,14 +597,14 @@ export default [
     "category": "Indian Non Veg curries",
     "name": "Chicken Butter Masala(4 pcs/2 pcs)",
     "full": 265,
-    "half": 140,
+    "half": 130,
     "available": true
   },
   {
     "id": 76,
     "category": "Indian Non Veg curries",
     "name": "Egg tadka",
-    "full": 120,
+    "full": 119,
     "half": null,
     "available": true
   },
@@ -612,7 +612,7 @@ export default [
     "id": 77,
     "category": "Indian Non Veg curries",
     "name": "Egg curry(2 pcs)",
-    "full": 110,
+    "full": 125,
     "half": 75,
     "available": true
   },
@@ -620,7 +620,7 @@ export default [
     "id": 78,
     "category": "Indian Non Veg curries",
     "name": "Egg do piyaja(2 pcs)",
-    "full": 125,
+    "full": 135,
     "half": 80,
     "available": true
   },
@@ -659,7 +659,7 @@ export default [
   {
     "id": 83,
     "category": "Rice and Roti",
-    "name": "Paratha",
+    "name": "Plain Paratha",
     "full": 20,
     "half": null,
     "available": true
@@ -668,8 +668,8 @@ export default [
     "id": 84,
     "category": "Rice and Roti",
     "name": "Steam Basmati rice",
-    "full": 79,
-    "half": null,
+    "full": 90,
+    "half": 50,
     "available": true
   },
   {
@@ -677,7 +677,7 @@ export default [
     "category": "Rice and Roti",
     "name": "Jira rice",
     "full": 99,
-    "half": null,
+    "half": 55,
     "available": true
   },
   {
@@ -688,14 +688,14 @@ export default [
     "half": null,
     "available": true
   },
-  {
+  /*{
     "id": 87,
     "category": "Thalis",
     "name": "Veg Thali",
-    "full": null,
+    "full": 125,
     "half": null,
     "available": true
-  },
+  },*/
   {
     "id": 88,
     "category": "Thalis",
@@ -756,7 +756,7 @@ export default [
     "id": 95,
     "category": "Combos",
     "name": "Paratha Veg Combo(Lachha paratha 2 pcs, Paneer butter masala/paneer do piyaja(4 pcs))",
-    "full": 179,
+    "full": 175,
     "half": null,
     "available": true
   },
@@ -764,7 +764,7 @@ export default [
     "id": 96,
     "category": "Combos",
     "name": "Paratha Non Veg Combo(Lachha paratha 2 pcs, Chicken Kosa 2 pcs)",
-    "full": 189,
+    "full": 220,
     "half": null,
     "available": true
   },
@@ -780,7 +780,7 @@ export default [
     "id": 98,
     "category": "Combos",
     "name": "Chinese Non Veg combo(Egg fried rice/Egg noodle, chili chicken 4 pcs, fried chicken momo 2 pcs)",
-    "full": 249,
+    "full": 260,
     "half": null,
     "available": true
   },
@@ -812,7 +812,7 @@ export default [
     "id": 102,
     "category": "Fried Rice",
     "name": "Egg Fried Rice",
-    "full": 130,
+    "full": 135,
     "half": null,
     "available": true
   },
@@ -820,7 +820,7 @@ export default [
     "id": 103,
     "category": "Fried Rice",
     "name": "Chicken Fried Rice",
-    "full": 150,
+    "full": 165,
     "half": null,
     "available": true
   },
@@ -828,7 +828,7 @@ export default [
     "id": 104,
     "category": "Fried Rice",
     "name": "Egg Chicken Fried Rice",
-    "full": 160,
+    "full": 175,
     "half": null,
     "available": true
   },
@@ -844,7 +844,7 @@ export default [
     "id": 106,
     "category": "Fried Rice",
     "name": "Mixed Fried Rice",
-    "full": 175,
+    "full": 180,
     "half": null,
     "available": true
   },
@@ -852,7 +852,7 @@ export default [
     "id": 107,
     "category": "Noodles",
     "name": "Veg Noodles",
-    "full": 75,
+    "full": 85,
     "half": null,
     "available": true
   },
@@ -860,7 +860,7 @@ export default [
     "id": 108,
     "category": "Noodles",
     "name": "Egg Noodles",
-    "full": 95,
+    "full": 99,
     "half": null,
     "available": true
   },
@@ -868,7 +868,7 @@ export default [
     "id": 109,
     "category": "Noodles",
     "name": "Chicken Noodles",
-    "full": 120,
+    "full": 125,
     "half": null,
     "available": true
   },
@@ -876,7 +876,7 @@ export default [
     "id": 110,
     "category": "Noodles",
     "name": "Egg Chicken Noodels",
-    "full": 130,
+    "full": 145,
     "half": null,
     "available": true
   },
@@ -884,7 +884,7 @@ export default [
     "id": 111,
     "category": "Noodles",
     "name": "Prawn Noodles",
-    "full": 130,
+    "full": 140,
     "half": null,
     "available": true
   },
@@ -892,7 +892,7 @@ export default [
     "id": 112,
     "category": "Noodles",
     "name": "Mixed Noodles",
-    "full": 140,
+    "full": 160,
     "half": null,
     "available": true
   },
@@ -908,7 +908,7 @@ export default [
     "id": 114,
     "category": "South Indian",
     "name": "Plain Rawa Dosa",
-    "full": 130,
+    "full": 140,
     "half": null,
     "available": true
   },
@@ -963,8 +963,8 @@ export default [
   {
     "id": 121,
     "category": "South Indian",
-    "name": "Idli (3 pcs)",
-    "full": 90,
+    "name": "Idli (2 pcs)",
+    "full": 80,
     "half": null,
     "available": true
   },
@@ -1012,7 +1012,7 @@ export default [
     "id": 127,
     "category": "Soups",
     "name": "Chicken hot and sour soup",
-    "full": 150,
+    "full": 140,
     "half": null,
     "available": true
   },
@@ -1020,7 +1020,7 @@ export default [
     "id": 128,
     "category": "Soups",
     "name": "Chicken Manchow soup",
-    "full": 165,
+    "full": 160,
     "half": null,
     "available": true
   },
@@ -1052,7 +1052,7 @@ export default [
     "id": 132,
     "category": "Beverages",
     "name": "Cold Coffee",
-    "full": 129,
+    "full": 130,
     "half": null,
     "available": true
   },
@@ -1060,7 +1060,7 @@ export default [
     "id": 133,
     "category": "Beverages",
     "name": "Lassi",
-    "full": 89,
+    "full": 90,
     "half": null,
     "available": true
   },

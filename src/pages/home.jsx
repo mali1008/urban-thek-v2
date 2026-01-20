@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import menu from "./menu";
 
-// Constants for business logic
-const MIN_ORDER_FREE_DELIVERY = 499;
-const DELIVERY_CHARGE = 50;
-const OPENING_HOUR = 9;  // 9:00 AM
-const CLOSING_HOUR = 23; // 11:00 PM
+// Constants for business 
+const MIN_ORDER_FOR_DELIVERY = 299;
+const MIN_ORDER_FREE_DELIVERY = 399;
+const DELIVERY_CHARGE = 30;
+const OPENING_HOUR = 10;  // 10:00 AM
+const CLOSING_HOUR = 22; // 22:00 PM
 
 export default function Home() {
   // --- 1. STATE & MEMORY ---
@@ -52,7 +53,8 @@ export default function Home() {
   const totalAmount = menu.reduce((sum, item) => 
     sum + (cart[`${item.id}_full`] || 0) * (item.full || 0) + (cart[`${item.id}_half`] || 0) * (item.half || 0), 0
   );
-
+  
+  const canPlaceOrder = totalAmount >= MIN_ORDER_FOR_DELIVERY;
   const isFreeDelivery = totalAmount >= MIN_ORDER_FREE_DELIVERY;
   const filteredMenu = menu.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
@@ -64,6 +66,7 @@ export default function Home() {
     }
     
     let msg = `*🍽️ Urban Thek Order*\n\n`;
+    msg += `Note: Delivery within 2km radius_\n\n`;
     msg += `*👤 Customer:* ${customerDetails.name}\n`;
     msg += `*📞 Phone:* ${customerDetails.phone}\n`;
     msg += `*📍 Address:* ${customerDetails.address}\n\n`;
@@ -146,7 +149,9 @@ if (showCustomerModal) {
 
           <div style={{ marginBottom: "20px", color: "#4b5563", fontWeight: "700", fontSize: "16px" }}>
             Total Payable: ₹{isFreeDelivery ? totalAmount : totalAmount + DELIVERY_CHARGE}
-            {!isFreeDelivery && <span style={{ fontSize: '12px', fontWeight: 'normal', display: 'block' }}>(Includes ₹50 Delivery)</span>}
+            {!isFreeDelivery && <span style={{ fontSize: '12px', fontWeight: 'normal', display: 'block' }}>
+  (Includes ₹{DELIVERY_CHARGE} Delivery)
+</span>}
           </div>
 
           {/* --- CUSTOMER DETAILS --- */}
@@ -155,13 +160,33 @@ if (showCustomerModal) {
           <input placeholder="10-digit Phone Number" value={customerDetails.phone} type="tel" maxLength="10" style={styles.search} onChange={e => setCustomerDetails({...customerDetails, phone: e.target.value})} />
           <textarea placeholder="Full Delivery Address" value={customerDetails.address} style={{...styles.search, height: "80px"}} onChange={e => setCustomerDetails({...customerDetails, address: e.target.value})} />
           
-          <button onClick={placeOrder} style={{ width: "100%", padding: "16px", background: "#10b981", color: "white", border: "none", borderRadius: "10px", fontWeight: "bold", fontSize: "16px", cursor: "pointer" }}>Send Order to WhatsApp</button>
-          <button onClick={() => setShowCustomerModal(false)} style={{ width: "100%", marginTop: "15px", background: "none", border: "none", color: "#6b7280", fontWeight: "bold" }}>Back to Menu</button>
+
+  <button 
+  onClick={placeOrder} 
+  disabled={!canPlaceOrder}
+  style={{ 
+    width: "100%", 
+    padding: "16px", 
+    background: canPlaceOrder ? "#10b981" : "#9ca3af", // Grey if disabled
+    color: "white", 
+    border: "none", 
+    borderRadius: "10px", 
+    fontWeight: "bold", 
+    fontSize: "16px", 
+    cursor: canPlaceOrder ? "pointer" : "not-allowed" 
+  }}
+>
+  {canPlaceOrder ? "Send Order to WhatsApp" : `Add ₹${MIN_ORDER_FOR_DELIVERY - totalAmount} more to Order`} 
+</button>
+<button onClick={() => setShowCustomerModal(false)} style={{ width: "100%", marginTop: "15px", background: "none", border: "none", color: "#6b7280", fontWeight: "bold" }}>Back to Menu</button>
+{/*} <button onClick={placeOrder} style={{ width: "100%", padding: "16px", background: "#10b981", color: "white", border: "none", borderRadius: "10px", fontWeight: "bold", fontSize: "16px", cursor: "pointer" }}>Send Order to WhatsApp</button>
+
+          <button onClick={() => setShowCustomerModal(false)} style={{ width: "100%", marginTop: "15px", background: "none", border: "none", color: "#6b7280", fontWeight: "bold" }}>Back to Menu</button>*/}
+          
         </div>
       </div>
     );
   }
-
 
   // --- 7. MAIN MENU VIEW ---
   return (
@@ -174,20 +199,61 @@ if (showCustomerModal) {
       </div>
       
       <div style={styles.deliveryBanner}>
-        {isFreeDelivery 
-          ? "🎉 FREE Delivery Active!" 
-          : `🚚 Add ₹${MIN_ORDER_FREE_DELIVERY - totalAmount} more for FREE delivery`}
-      </div>
+  <div>
+    {isFreeDelivery 
+      ? "🎉 FREE Delivery Active!" 
+      : `🚚 Add ₹${MIN_ORDER_FREE_DELIVERY - totalAmount} more for FREE delivery`}
+  </div>
+  <div style={{ fontSize: '11px', marginTop: '4px', opacity: 0.9 }}>
+    📍 Only within 2km of Akankha More
+  </div>
+</div>
+
 
       <input type="text" placeholder="🔍 Search dishes..." style={styles.search} onChange={(e) => setSearchTerm(e.target.value)} />
 
-      {filteredMenu.map((item) => (
+{filteredMenu.map((item) => (
         <div key={item.id} style={styles.card}>
           <div style={{ color: "#059669", fontSize: "12px", fontWeight: "bold" }}>{item.category}</div>
           <h3 style={{ margin: "5px 0", fontSize: "18px" }}>{item.name}</h3>
           
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
             {item.full && (
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span>Full: ₹{item.full}</span>
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  {cart[`${item.id}_full`] > 0 && <button style={{...styles.btn, backgroundColor: "#ef4444"}} onClick={() => removeItem(item.id, "full")}>-</button>}
+                  <span style={{ fontWeight: "bold" }}>{cart[`${item.id}_full`] || 0}</span>
+                  <button style={{...styles.btn, backgroundColor: "#10b981"}} onClick={() => addItem(item.id, "full")}>+</button>
+                </div>
+              </div>
+            )}
+            {item.half && (
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span>Half: ₹{item.half}</span>
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  {cart[`${item.id}_half`] > 0 && <button style={{...styles.btn, backgroundColor: "#ef4444"}} onClick={() => removeItem(item.id, "half")}>-</button>}
+                  <span style={{ fontWeight: "bold" }}>{cart[`${item.id}_half`] || 0}</span>
+                  <button style={{...styles.btn, backgroundColor: "#3b82f6"}} onClick={() => addItem(item.id, "half")}>+</button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+
+{filteredMenu.map((item) => (
+  <div key={item.id} style={styles.card}>
+    <div style={{ color: "#059669", fontSize: "12px", fontWeight: "bold" }}>{item.category}</div>
+    <h3 style={{ margin: "5px 0", fontSize: "18px" }}>{item.name}</h3>
+    
+    <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+
+   
+
+
+
+           {item.full && (
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span>Full: ₹{item.full}</span>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -223,5 +289,5 @@ if (showCustomerModal) {
         </div>
       )}
     </div>
-  );
+  )
 }
