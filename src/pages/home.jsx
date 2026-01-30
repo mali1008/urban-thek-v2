@@ -50,10 +50,27 @@ export default function Home() {
     });
   };
 
-  const totalAmount = menu.reduce((sum, item) => 
+ /* const totalAmount = menu.reduce((sum, item) => 
     sum + (cart[`${item.id}_full`] || 0) * (item.full || 0) + (cart[`${item.id}_half`] || 0) * (item.half || 0), 0
   );
-  
+  */
+const subtotal = menu.reduce((sum, item) => {
+    return (
+      sum +
+      (cart[`${item.id}_full`] || 0) * (item.full || 0) +
+      (cart[`${item.id}_half`] || 0) * (item.half || 0)
+    );
+  }, 0);
+let discountPercent = 0;
+  if (subtotal >= 2000) {
+    discountPercent = 15;
+  } else if (subtotal >= 1000) {
+    discountPercent = 10;
+  }
+const discountAmount = (subtotal * discountPercent) / 100;
+  const totalAmount = subtotal - discountAmount;
+
+
   const canPlaceOrder = totalAmount >= MIN_ORDER_FOR_DELIVERY;
   const isFreeDelivery = totalAmount >= MIN_ORDER_FREE_DELIVERY;
   const filteredMenu = menu.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -146,6 +163,30 @@ if (showCustomerModal) {
               );
             })}
           </div>
+
+          
+          <div style={{ padding: "12px", backgroundColor: "#f9f9f9", borderRadius: "8px", marginBottom: "15px", border: "1px solid #eee" }}>
+            <p style={{ fontSize: "11px", color: "#15803d", textAlign: "center", fontWeight: "bold", margin: "0 0 8px 0" }}>
+              ✨ 10% OFF > ₹1000 | 15% OFF > ₹2000
+            </p>
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px" }}>
+              <span>Subtotal:</span>
+              <span>₹{subtotal}</span>
+            </div>
+            {discountPercent > 0 && (
+              <div style={{ display: "flex", justifyContent: "space-between", color: "#dc2626", fontWeight: "bold", fontSize: "13px", marginTop: "4px" }}>
+                <span>Discount ({discountPercent}%):</span>
+                <span>-₹{discountAmount}</span>
+              </div>
+            )}
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "8px", paddingTop: "8px", borderTop: "1px dashed #ccc" }}>
+              <span style={{ fontWeight: "bold", fontSize: "16px" }}>To Pay:</span>
+              <span style={{ fontWeight: "bold", fontSize: "16px", color: "#000" }}>₹{totalAmount}</span>
+            </div>
+          </div>
+
+
+
 
           <div style={{ marginBottom: "20px", color: "#4b5563", fontWeight: "700", fontSize: "16px" }}>
             Total Payable: ₹{isFreeDelivery ? totalAmount : totalAmount + DELIVERY_CHARGE}
