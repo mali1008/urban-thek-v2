@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* --- PRINT STYLES --- */
+
+/* Normal view: Hide receipt on screen */
+#printable-receipt {
+  display: none;
+}
+

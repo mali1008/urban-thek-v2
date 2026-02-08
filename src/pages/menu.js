@@ -170,7 +170,7 @@ const menu = [
   {
     "id": 22,
     "category": "Breakfast",
-    "name": "Puri Sabji(4 pcs)",
+    "name": "Puri Sabji(3 pcs)",
     "full": 120,
     "half": null,
     "available": true
@@ -259,7 +259,7 @@ const menu = [
     "id": 33,
     "category": "Rolls",
     "name": "Veg roll",
-    "full": 60,
+    "full": 50,
     "half": null,
     "available": true
   },
@@ -267,7 +267,7 @@ const menu = [
     "id": 34,
     "category": "Rolls",
     "name": "Paneer Roll",
-    "full": 80,
+    "full": 65,
     "half": null,
     "available": true
   },
@@ -275,7 +275,7 @@ const menu = [
     "id": 35,
     "category": "Rolls",
     "name": "Paneer Cheese Roll",
-    "full": 95,
+    "full": 85,
     "half": null,
     "available": true
   },
@@ -283,15 +283,15 @@ const menu = [
     "id": 36,
     "category": "Rolls",
     "name": "Egg Roll (double/single)",
-    "full": 80,
-    "half": 70,
+    "full": 70,
+    "half": 60,
     "available": true
   },
   {
     "id": 37,
     "category": "Rolls",
     "name": "Chicken Roll",
-    "full": 85,
+    "full": 70,
     "half": null,
     "available": true
   },
@@ -299,7 +299,7 @@ const menu = [
     "id": 38,
     "category": "Rolls",
     "name": "Egg chicken roll(single)",
-    "full": 95,
+    "full": 80,
     "half": null,
     "available": true
   },
@@ -331,7 +331,7 @@ const menu = [
     "id": 42,
     "category": "Momos",
     "name": "Chicken Fry Momo",
-    "full": 110,
+    "full": 100,
     "half": null,
     "available": true
   },
@@ -339,7 +339,7 @@ const menu = [
     "id": 43,
     "category": "Momos",
     "name": "Chicken Pan Fry Momo",
-    "full": 125,
+    "full": 110,
     "half": null,
     "available": true
   },
@@ -347,7 +347,7 @@ const menu = [
     "id": 45,
     "category": "Indian Non Veg Starters",
     "name": "Fish pakoda(6 pcs)",
-    "full": 175,
+    "full": 150,
     "half": null,
     "available": true
   },
@@ -355,7 +355,7 @@ const menu = [
     "id": 46,
     "category": "Indian Non Veg Starters",
     "name": "Fish fry",
-    "full": 160,
+    "full": 140,
     "half": null,
     "available": true
   },
@@ -378,9 +378,9 @@ const menu = [
   {
     "id": 49,
     "category": "Indian Non Veg Starters",
-    "name": "Chicken lollypop(6 pcs)",
-    "full": 240,
-    "half": null,
+    "name": "Chicken lollypop(6 pcs/3 pcs)",
+    "full": 230,
+    "half": 115,
     "available": true
   },
   {
@@ -394,17 +394,17 @@ const menu = [
   {
     "id": 51,
     "category": "Indian Non Veg Starters",
-    "name": "Drumps of heaven(4 pcs)",
-    "full": 230,
-    "half": null,
+    "name": "Drumps of heaven(6 pcs/3 pcs)",
+    "full": 240,
+    "half": 120,
     "available": true
   },
   {
     "id": 52,
     "category": "Indian Non Veg Starters",
-    "name": "Chicken Finger(6 pcs)",
+    "name": "Chicken Finger(6 pcs/3 pcs)",
     "full": 230,
-    "half": null,
+    "half": 115,
     "available": true
   },
   {
@@ -412,7 +412,7 @@ const menu = [
     "category": "Chinese Veg gravy",
     "name": "Chilli Paneer(6 pcs/4 pcs)",
     "full": 165,
-    "half": 120,
+    "half": 130,
     "available": true
   },
   {
@@ -420,7 +420,7 @@ const menu = [
     "category": "Chinese Veg gravy",
     "name": "Veg Manchirian(6 pcs/4 pcs)",
     "full": 150,
-    "half": 120,
+    "half": 130,
     "available": true
   },
   {
@@ -428,7 +428,7 @@ const menu = [
     "category": "Chinese Veg gravy",
     "name": "Chilli Mushroom",
     "full": 185,
-    "half": 140,
+    "half": null,
     "available": true
   },
   {
@@ -436,15 +436,15 @@ const menu = [
     "category": "Chinese Non veg gravy",
     "name": "Chilli chicken (6 pcs/4 pcs)",
     "full": 175,
-    "half": 120,
+    "half": 140,
     "available": true
   },
   {
     "id": 57,
     "category": "Chinese Non veg gravy",
     "name": "Chilli chicken Dry (6 pcs/4 pcs)",
-    "full": 175,
-    "half": 120,
+    "full": 180,
+    "half": 140,
     "available": true
   },
   {
@@ -452,7 +452,7 @@ const menu = [
     "category": "Chinese Non veg gravy",
     "name": "Chicken Manchurian(6 pcs/4 pcs)",
     "full": 175,
-    "half": 130,
+    "half": 140,
     "available": true
   },
   {
@@ -460,7 +460,7 @@ const menu = [
     "category": "Chinese Non veg gravy",
     "name": "Garlic Chicken (6 pcs/4 pcs)",
     "full": 180,
-    "half": 130,
+    "half": 140,
     "available": true
   },
   {
@@ -468,31 +468,31 @@ const menu = [
     "category": "Chinese Non veg gravy",
     "name": "Scezwan Chicken (6 pcs/4 pcs)",
     "full": 185,
-    "half": 130,
+    "half": 140,
     "available": true
   },
   {
     "id": 61,
     "category": "Chinese Non veg gravy",
     "name": "Chilli fish (6 pcs/4 pcs)",
-    "full": 245,
-    "half": 180,
+    "full": 230,
+    "half": 170,
     "available": true
   },
   {
     "id": 62,
     "category": "Chinese Non veg gravy",
     "name": "Garlic Fish (6 pcs/4 pcs)",
-    "full": 250,
-    "half": 180,
+    "full": 230,
+    "half": 170,
     "available": true
   },
   {
     "id": 63,
     "category": "Chinese Non veg gravy",
     "name": "Chilli fish Dry (6 pcs/4 pcs)",
-    "full": 260,
-    "half": 190,
+    "full": 240,
+    "half": 180,
     "available": true
   },
   {
@@ -556,7 +556,7 @@ const menu = [
     "category": "Indian veg curries",
     "name": "Kadhai Paneer(6 pcs/4 pcs)",
     "full": 190,
-    "half": 120,
+    "half": 105,
     "available": true
   },
   {
@@ -619,7 +619,7 @@ const menu = [
     "id": 79,
     "category": "Rice and Roti",
     "name": "Tawa Roti",
-    "full": 12,
+    "full": 10,
     "half": null,
     "available": true
   },
@@ -660,7 +660,7 @@ const menu = [
     "category": "Rice and Roti",
     "name": "Steam Basmati rice",
     "full": 90,
-    "half": 50,
+    "half": 70,
     "available": true
   },
   {
@@ -668,7 +668,7 @@ const menu = [
     "category": "Rice and Roti",
     "name": "Jira rice",
     "full": 99,
-    "half": 55,
+    "half": 75,
     "available": true
   },
   {
@@ -731,7 +731,7 @@ const menu = [
     "id": 95,
     "category": "Combos",
     "name": "Paratha Veg Combo(Lachha paratha 2 pcs, Paneer butter masala/paneer do piyaja(4 pcs))",
-    "full": 175,
+    "full": 155,
     "half": null,
     "available": true
   },
@@ -739,7 +739,7 @@ const menu = [
     "id": 96,
     "category": "Combos",
     "name": "Paratha Non Veg Combo(Lachha paratha 2 pcs, Chicken Kosa 2 pcs)",
-    "full": 220,
+    "full": 180,
     "half": null,
     "available": true
   },
@@ -763,7 +763,7 @@ const menu = [
     "id": 99,
     "category": "Luchi Mutton",
     "name": "(Luchi 4 pcs, Chicken Kossa 2 pcs, alu 1pc)",
-    "full": 149,
+    "full": 165,
     "half": null,
     "available": true
   },
@@ -803,7 +803,7 @@ const menu = [
     "id": 104,
     "category": "Fried Rice",
     "name": "Egg Chicken Fried Rice",
-    "full": 175,
+    "full": 180,
     "half": null,
     "available": true
   },
@@ -811,7 +811,7 @@ const menu = [
     "id": 105,
     "category": "Fried Rice",
     "name": "Prawn Fried Rice",
-    "full": 199,
+    "full": 150,
     "half": null,
     "available": true
   },
@@ -883,7 +883,7 @@ const menu = [
     "id": 114,
     "category": "South Indian",
     "name": "Plain Rawa Dosa",
-    "full": 140,
+    "full": 130,
     "half": null,
     "available": true
   },
@@ -915,7 +915,7 @@ const menu = [
     "id": 118,
     "category": "South Indian",
     "name": "Extra Butter",
-    "full": 10,
+    "full": 15,
     "half": null,
     "available": true
   },
@@ -931,7 +931,7 @@ const menu = [
     "id": 120,
     "category": "South Indian",
     "name": "Extra Cheese",
-    "full": 30,
+    "full": 20,
     "half": null,
     "available": true
   },
@@ -967,14 +967,14 @@ const menu = [
     "half": null,
     "available": true
   },
-  {
+  /*{
     "id": 125,
     "category": "Soups",
     "name": "Veg Manchow soup",
     "full": 99,
     "half": null,
     "available": true
-  },
+  },*/
   {
     "id": 126,
     "category": "Soups",
