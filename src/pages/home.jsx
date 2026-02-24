@@ -1,6 +1,6 @@
 import { supabase } from '../lib/supabaseClient';
 import { useState, useEffect } from "react";
-import menu from "./menu";
+/*import menu from "./menu"; */
 
 // Constants for business 
 const MIN_ORDER_FOR_DELIVERY = 299;
@@ -9,11 +9,47 @@ const DELIVERY_CHARGE = 30;
 const OPENING_HOUR = 10;  // 10:00 AM
 const CLOSING_HOUR = 23; // 22:00 PM
 
+
+
 export default function Home() {
   // --- 1. STATE & MEMORY ---
+  const [menuItems, setMenuItems] = useState([]); // Holds Supabase data
+  const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState({});
+  
   const [searchTerm, setSearchTerm] = useState("");
   const [showCustomerModal, setShowCustomerModal] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(20);
+
+  // --- NEW: FETCH FROM SUPABASE ---
+    
+useEffect(() => {
+  const fetchMenu = async () => {
+    setLoading(true);
+    const { data, error } = await supabase
+  .from('food_items')
+  .select('*')
+  .order('image_url', { ascending: false, nullsFirst: false });
+    if (error) {
+      console.error("Fetch error:", error);
+    } else {
+      setMenuItems([...(data || [])]);
+    }
+    setLoading(false);
+  };
+  fetchMenu();
+}, []);
+
+useEffect(() => {
+  if (menuItems.length > 0) {
+    const timer = setTimeout(() => {
+      setMenuItems(prev => [...prev]);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }
+}, [menuItems.length]);
+
+  // ... rest of your LocalStorage effects (keep those!)
 
   // Load customer details from LocalStorage (Memory)
   const [customerDetails, setCustomerDetails] = useState(() => {
@@ -40,17 +76,19 @@ useEffect(() => {
   const isOpen = currentHour >= OPENING_HOUR && currentHour < CLOSING_HOUR;
 
   // --- 3. CART LOGIC ---
+ 
   const addItem = (id, type = "full") => {
     if (!isOpen) {
-      alert("🏪 Urban Thek is currently CLOSED.\nOrders are accepted 9:00 AM - 11:00 PM.");
+      alert("🏪 Urban Thek is currently CLOSED.");
       return;
     }
-    const key = `${id}_${type}`;
+    // We force ID to string to avoid issues
+    const key = `${String(id)}_${type}`;
     setCart((prev) => ({ ...prev, [key]: (prev[key] || 0) + 1 }));
   };
 
   const removeItem = (id, type) => {
-    const key = `${id}_${type}`;
+    const key = `${String(id)}_${type}`;
     setCart((prev) => {
       if (!prev[key]) return prev;
       const newCart = { ...prev, [key]: prev[key] - 1 };
@@ -59,11 +97,11 @@ useEffect(() => {
     });
   };
 
-  /* const totalAmount = menu.reduce((sum, item) => 
+  /* const totalAmount = menuItems.reduce((sum, item) => 
      sum + (cart[`${item.id}_full`] || 0) * (item.full || 0) + (cart[`${item.id}_half`] || 0) * (item.half || 0), 0
    );
    */
-  const subtotal = menu.reduce((sum, item) => {
+  const subtotal = menuItems.reduce((sum, item) => {
     return (
       sum +
       (cart[`${item.id}_full`] || 0) * (item.full || 0) +
@@ -82,7 +120,13 @@ useEffect(() => {
 
   const canPlaceOrder = totalAmount >= MIN_ORDER_FOR_DELIVERY;
   const isFreeDelivery = totalAmount >= MIN_ORDER_FREE_DELIVERY;
-  const filteredMenu = menu.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  
+
+const filteredMenu = [...(menuItems || [])].filter(item => {
+  const itemName = item.name ? String(item.name).toLowerCase() : "";
+  const search = (searchTerm || "").trim().toLowerCase();  // ← add .trim()
+  return itemName.includes(search);
+});
 
   // --- 4. WHATSAPP ORDER LOGIC ---
   const placeOrder = () => {
@@ -101,7 +145,7 @@ useEffect(() => {
     // Loop through the items in the cart to build the list
     Object.entries(cart).forEach(([key, quantity]) => {
       const [id, type] = key.split('_');
-      const item = menu.find(m => String(m.id) === String(id));
+      const item = menuItems.find(m => String(m.id) === String(id));
       if (item && quantity > 0) {
         const price = type === 'full' ? item.full : item.half;
         msg += `• ${item.name} (${type}) x${quantity} = ₹${price * quantity}\n`;
@@ -124,7 +168,17 @@ useEffect(() => {
 
   // --- 5. STYLES ---
   const styles = {
-    page: { maxWidth: 480, margin: "0 auto", padding: "20px", fontFamily: "sans-serif", backgroundColor: "#f9fafb", minHeight: "100vh" },
+    page: { 
+      maxWidth: 480, 
+      margin: "0 auto", 
+      paddingTop: "20px", 
+      paddingBottom: "20px", 
+      paddingLeft: "20px", 
+      paddingRight: "20px",
+      fontFamily: "sans-serif", 
+      backgroundColor: "#f9fafb", 
+      minHeight: "100vh" 
+    },
     header: { textAlign: "center", color: "#059669", fontSize: "32px", fontWeight: "800", marginBottom: "5px" },
     addressText: { textAlign: "center", color: "#374151", fontSize: "14px", margin: "0", fontWeight: "600" },
     statusBadge: {
@@ -141,6 +195,16 @@ useEffect(() => {
     footerCart: { position: "fixed", bottom: 20, left: "50%", transform: "translateX(-50%)", width: "90%", maxWidth: "400px", backgroundColor: "#059669", color: "white", padding: "16px", borderRadius: "15px", display: "flex", justifyContent: "space-between", alignItems: "center", fontWeight: "bold", cursor: "pointer", boxShadow: "0 10px 25px rgba(0,0,0,0.3)", zIndex: 1000 }
   };
 
+// --- 5. LOADING STATE ---
+  if (loading) {
+    return (
+      <div style={{ ...styles.page, textAlign: 'center', paddingTop: '100px' }}>
+        <h2 style={{ color: '#059669' }}>⌛ Loading Menu...</h2>
+        <p>Fetching the latest deliciousness from Urban Thek</p>
+      </div>
+    );
+  }
+
   // --- 6. MODAL VIEW ---
 
   if (showCustomerModal) {
@@ -153,7 +217,7 @@ useEffect(() => {
           <div style={{ maxHeight: "200px", overflowY: "auto", marginBottom: "20px", borderBottom: "1px solid #eee" }}>
             {Object.entries(cart).map(([key, quantity]) => {
               const [id, type] = key.split('_');
-              const item = menu.find(m => String(m.id) === String(id));
+              const item = menuItems.find(m => String(m.id) === String(id));
               if (!item) return null;
               const price = type === 'full' ? item.full : item.half;
 
@@ -389,7 +453,7 @@ saveToSupabase();
   <tbody>
     {Object.entries(cart).map(([key, quantity]) => {
       const [id, type] = key.split('_');
-      const item = menu.find(m => String(m.id) === String(id));
+      const item = menuItems.find(m => String(m.id) === String(id));
       if (!item) return null;
       const price = type === 'full' ? item.full : item.half;
       return (
@@ -448,10 +512,8 @@ saveToSupabase();
     );
   }
 
-
-  // --- 7. MAIN MENU VIEW ---
   return (
-    <div style={styles.page}>
+    <div key={menuItems.length} style={styles.page}>
       <h1 style={styles.header}>Urban Thek</h1>
       <p style={styles.addressText}>Nawabpur, Near Akankha More, Newtown</p>
 
@@ -468,89 +530,95 @@ saveToSupabase();
         <div style={{ fontSize: '11px', marginTop: '4px', opacity: 0.9 }}>
           📍 Only within 2km of Akankha More
         </div>
-      </div>
+      </div>     
 
+<input
+  type="text"
+  placeholder="🔍 Search dishes..."
+  style={styles.search}
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+/>
 
-      <input type="text" placeholder="🔍 Search dishes..." style={styles.search} onChange={(e) => setSearchTerm(e.target.value)} />
-
-      {filteredMenu.map((item) => (
-        <div key={item.id} style={styles.card}>
-          <div style={{ color: "#059669", fontSize: "12px", fontWeight: "bold" }}>{item.category}</div>
-          <h3 style={{ margin: "5px 0", fontSize: "18px" }}>{item.name}</h3>
-
-          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-            {item.full && (
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span>Full: ₹{item.full}</span>
-                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  {cart[`${item.id}_full`] > 0 && <button style={{ ...styles.btn, backgroundColor: "#ef4444" }} onClick={() => removeItem(item.id, "full")}>-</button>}
-                  <span style={{ fontWeight: "bold" }}>{cart[`${item.id}_full`] || 0}</span>
-                  <button style={{ ...styles.btn, backgroundColor: "#10b981" }} onClick={() => addItem(item.id, "full")}>+</button>
-                </div>
-              </div>
-            )}
-            {item.half && (
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span>Half: ₹{item.half}</span>
-                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  {cart[`${item.id}_half`] > 0 && <button style={{ ...styles.btn, backgroundColor: "#ef4444" }} onClick={() => removeItem(item.id, "half")}>-</button>}
-                  <span style={{ fontWeight: "bold" }}>{cart[`${item.id}_half`] || 0}</span>
-                  <button style={{ ...styles.btn, backgroundColor: "#3b82f6" }} onClick={() => addItem(item.id, "half")}>+</button>
-                </div>
-              </div>
-            )}
-          </div>
-
-
+      {filteredMenu.length === 0 ? (
+        <div style={{ textAlign: 'center', padding: '40px', color: '#666' }}>
+          <p>📭 No dishes found.</p>
         </div>
-      ))}
-
-      {filteredMenu.map((item) => (
-        <div key={item.id} style={styles.card}>
-          <div style={{ color: "#059669", fontSize: "12px", fontWeight: "bold" }}>{item.category}</div>
-          <h3 style={{ margin: "5px 0", fontSize: "18px" }}>{item.name}</h3>
-
-          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-
-
-
-
-
-            {item.full && (
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span>Full: ₹{item.full}</span>
-                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  {cart[`${item.id}_full`] > 0 && <button style={{ ...styles.btn, backgroundColor: "#ef4444" }} onClick={() => removeItem(item.id, "full")}>-</button>}
-                  <span style={{ fontWeight: "bold" }}>{cart[`${item.id}_full`] || 0}</span>
-                  <button style={{ ...styles.btn, backgroundColor: "#10b981" }} onClick={() => addItem(item.id, "full")}>+</button>
-                </div>
+      ) : (
+        <>
+          {filteredMenu.slice(0, visibleCount).map((item) => (
+            <div key={item.id} style={styles.card}>
+             
+              {item.image_url && (
+                <img
+                  src={item.image_url}
+                  alt={item.name}
+                  style={{
+                    width: "100%",
+                    height: "180px",
+                    objectFit: "cover",
+                    borderRadius: "10px",
+                    marginBottom: "10px"
+                  }}
+                />
+              )}
+              <div style={{ color: "#059669", fontSize: "12px", fontWeight: "bold" }}>{item.category}</div>
+              <h3 style={{ margin: "5px 0", fontSize: "18px" }}>{item.name}</h3>
+              <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                {item.full && (
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <span>Full: ₹{item.full}</span>
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      {cart[`${item.id}_full`] > 0 && <button style={{ ...styles.btn, backgroundColor: "#ef4444" }} onClick={() => removeItem(item.id, "full")}>-</button>}
+                      <span style={{ fontWeight: "bold" }}>{cart[`${item.id}_full`] || 0}</span>
+                      <button style={{ ...styles.btn, backgroundColor: "#10b981" }} onClick={() => addItem(item.id, "full")}>+</button>
+                    </div>
+                  </div>
+                )}
+                {item.half && (
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <span>Half: ₹{item.half}</span>
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      {cart[`${item.id}_half`] > 0 && <button style={{ ...styles.btn, backgroundColor: "#ef4444" }} onClick={() => removeItem(item.id, "half")}>-</button>}
+                      <span style={{ fontWeight: "bold" }}>{cart[`${item.id}_half`] || 0}</span>
+                      <button style={{ ...styles.btn, backgroundColor: "#3b82f6" }} onClick={() => addItem(item.id, "half")}>+</button>
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
-            {item.half && (
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span>Half: ₹{item.half}</span>
-                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  {cart[`${item.id}_half`] > 0 && <button style={{ ...styles.btn, backgroundColor: "#ef4444" }} onClick={() => removeItem(item.id, "half")}>-</button>}
-                  <span style={{ fontWeight: "bold" }}>{cart[`${item.id}_half`] || 0}</span>
-                  <button style={{ ...styles.btn, backgroundColor: "#3b82f6" }} onClick={() => addItem(item.id, "half")}>+</button>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      ))}
-
-      <div style={{ height: "100px" }}></div>
+            </div>
+          ))}
+          {visibleCount < filteredMenu.length && (
+            <button
+              onClick={() => setVisibleCount(prev => prev + 20)}
+              style={{
+                width: "100%",
+                padding: "14px",
+                backgroundColor: "#059669",
+                color: "white",
+                border: "none",
+                borderRadius: "10px",
+                fontWeight: "bold",
+                fontSize: "16px",
+                cursor: "pointer",
+                marginBottom: "80px"
+              }}
+            >
+              Load More ({filteredMenu.length - visibleCount} more dishes)
+            </button>
+          )}
+        </>
+      )}
 
       {totalAmount > 0 && (
         <div style={styles.footerCart} onClick={() => setShowCustomerModal(true)}>
           <div>
             <div style={{ fontSize: "18px" }}>₹{isFreeDelivery ? totalAmount : totalAmount + DELIVERY_CHARGE}</div>
             <div style={{ fontSize: "11px" }}>{Object.keys(cart).length} Items | {isFreeDelivery ? "FREE Delivery" : "+₹30 Delivery"}</div>
-          </div> {/* Correctly closes the text container */}
+          </div>
           <span>Review Order →</span>
         </div>
       )}
-    </div> 
+    </div>
   );
-  }
+}
