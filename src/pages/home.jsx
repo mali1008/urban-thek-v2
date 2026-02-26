@@ -40,14 +40,14 @@ useEffect(() => {
   fetchMenu();
 }, []);
 
-useEffect(() => {
+/*useEffect(() => {
   if (menuItems.length > 0) {
     const timer = setTimeout(() => {
       setMenuItems(prev => [...prev]);
     }, 1000);
     return () => clearTimeout(timer);
   }
-}, [menuItems.length]);
+}, [menuItems.length]); */
 
   // ... rest of your LocalStorage effects (keep those!)
 
@@ -513,7 +513,8 @@ saveToSupabase();
   }
 
   return (
-    <div key={menuItems.length} style={styles.page}>
+   
+      <div style={styles.page}>
       <h1 style={styles.header}>Urban Thek</h1>
       <p style={styles.addressText}>Nawabpur, Near Akankha More, Newtown</p>
 
