@@ -5,9 +5,10 @@ import { useState, useEffect } from "react";
 // Constants for business 
 const MIN_ORDER_FOR_DELIVERY = 299;
 const MIN_ORDER_FREE_DELIVERY = 399;
-const DELIVERY_CHARGE = 30;
+const DELIVERY_CHARGE = 0;
 const OPENING_HOUR = 10;  // 10:00 AM
 const CLOSING_HOUR = 23; // 22:00 PM
+const GST_RATE = 0.025; // 2.5% each for CGST & SGST
 
 
 
@@ -115,7 +116,10 @@ useEffect(() => {
     discountPercent = 10;
   }
   const discountAmount = (subtotal * discountPercent) / 100;
-  const totalAmount = subtotal - discountAmount;
+const preTaxAmount = subtotal - discountAmount;
+const cgst = Math.round(preTaxAmount * GST_RATE);
+const sgst = Math.round(preTaxAmount * GST_RATE);
+const totalAmount = preTaxAmount + cgst + sgst;
 
 
   const canPlaceOrder = totalAmount >= MIN_ORDER_FOR_DELIVERY;
@@ -252,12 +256,17 @@ const filteredMenu = [...(menuItems || [])].filter(item => {
                 <span>-₹{discountAmount}</span>
               </div>
             )}
-            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "8px", paddingTop: "8px", borderTop: "1px dashed #ccc" }}>
-              <span style={{ fontWeight: "bold", fontSize: "16px" }}>To Pay:</span>
-              <span style={{ fontWeight: "bold", fontSize: "16px", color: "#000" }}>₹{totalAmount}</span>
-            </div>
-          </div>
-
+          <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px", marginTop: "4px" }}>
+  <span>CGST (2.5%):</span><span>₹{cgst}</span>
+</div>
+<div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px", marginTop: "2px" }}>
+  <span>SGST (2.5%):</span><span>₹{sgst}</span>
+</div>
+<div style={{ display: "flex", justifyContent: "space-between", marginTop: "8px", paddingTop: "8px", borderTop: "1px dashed #ccc" }}>
+  <span style={{ fontWeight: "bold", fontSize: "16px" }}>To Pay:</span>
+  <span style={{ fontWeight: "bold", fontSize: "16px", color: "#000" }}>₹{totalAmount}</span>
+</div>
+</div>
 
 
 
@@ -476,11 +485,13 @@ saveToSupabase();
 {/* Bottom Dotted Line (After all items) */}
 <div className="dotted-line"></div>
 
-  <div className="right">
-    <div>Subtotal: ₹{subtotal}</div>
-    {discountAmount > 0 && <div>Discount: -₹{discountAmount}</div>}
-    <div className="total-row">TOTAL: ₹{totalAmount}</div>
-  </div>
+ <div className="right">
+  <div>Subtotal: ₹{subtotal}</div>
+  {discountAmount > 0 && <div>Discount: -₹{discountAmount}</div>}
+  <div>CGST (2.5%): ₹{cgst}</div>
+  <div>SGST (2.5%): ₹{sgst}</div>
+  <div className="total-row">TOTAL: ₹{totalAmount}</div>
+</div>
 
  <div className="dotted-line"></div>
   
